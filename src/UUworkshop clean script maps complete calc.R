@@ -6,16 +6,23 @@ library(ggraph) #gplot2 is poor fit for graph and network visualizations due to 
 
 #df uploaden: nodelist_merkel_p2 (nodelist of example data)
 #df uploaden: edgelist_merkel_p2 (edgelist of example data)
-merkel_p2_nodes  <- read.csv ("good-enough-project-template/data/raw/nodelist_merkel_p2.csv")
-merkel_p2_edges <- read.csv("good-enough-project-template/data/raw/edgelist_merkel_p2.csv")
+merkel_p2_nodes  <- read.csv ("CM_analysis/data/raw/nodelist_merkel_p2.csv")
+merkel_p2_edges <- read.csv("CM_analysis/data/raw/edgelist_merkel_p2.csv")
 
 
 #Calling my new function to calc node degrees and rename the node_calc df it returns
+#TO DO does not work as supposed to
 Merkel_p2_nodecalc <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes) # takes edgelist, nodeslist
 
+#TO DO: does not work as supposed to
+merkel_p2_map <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes)[[1]]
+merkel_p2_node_calc <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes)[[2]]
 
-farthest_vertices(mp, directed = TRUE, unconnected = TRUE)# #determine longest path bepalen -HANGT DIT LOGISCH SAMEN MET HOEVEEL LOOPS JE MOET DOEN? 
-get_diameter (mp, directed = TRUE, unconnected = TRUE)# Bij Merkel2 is langste pad 6 en na 5 runs balans
+# creating a map/graph
+merkel_p2_map <- graph_from_data_frame(d=merkel_p2_edges, vertices=merkel_p2_nodes, directed = T)
+
+farthest_vertices(merkel_p2_map, directed = TRUE, unconnected = TRUE)# #determine longest path to set the number of loops below 
+get_diameter (merkel_p2_map, directed = TRUE, unconnected = TRUE)# (superfluous step at this time -Bij Merkel2 is langste pad 6 en na 5 runs balans
 
 
 #nieuwe evaluation_step functie proberen
@@ -28,10 +35,10 @@ nodes_2 <- Evaluation_step(edges_new, nodes_new)[[2]]
 edges_result <- edges
 nodes_result <- nodes
 
-#daarvan een loop maken (dus ipv hierboven)
+#Looping the evaluation step function (i in 1:farthest_vertices)- TO Do: make this automatic
 for (i in 1:5) {
-  edges_result <- Evaluation_step(edges_result, nodes_result)[[1]]
-  nodes_result <- Evaluation_step(edges_result, nodes_result)[[2]]
+  edges_result <- Evaluation_step(edges_result, nodes_result)[[1]] #ik denk dat dit fout is, moet edgelist, nodelist nemen
+  nodes_result <- Evaluation_step(edges_result, nodes_result)[[2]] # idem
   print(i)
   print(sum(edges_result$value.x))
 }
