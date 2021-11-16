@@ -1,9 +1,18 @@
-# Function calculates all the different degrees and go(W) values.
+# calc_degrees-gow calculates the 
+  #degree, indegree, outdegree 
+  #their weighted equivalents 
+  #the go and gow value 
+# for each node in the cognitive map
 # It takes an edgelist and nodelist (both df) which are transformed into a map to do the calculations
-# It returns a df: node_calc
-# In using this function, you can name and store the created node_calc df and map reflecting its content by using the code:
+# It returns a list of list entitled "node_calc" with all values
+# Insert the following codes below the function: 
     # name_period_map <- calc_degrees_goW(edgelist, nodelist)[[1]]
     # name_period_node_calc <- calc_degrees_goW(edgelist, nodelist)[[2]]
+# for it to return and store 
+  # a df with the values [1]
+  # the map associated with the edgelist and nodelist
+
+####Functie werkt niet - geeft een list terug!!
 
 
 calc_degrees_goW <- function(edgelist, nodelist){

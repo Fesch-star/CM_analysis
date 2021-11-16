@@ -1,4 +1,15 @@
-# [PROJECT NAME]
+# [CM_analysis]
+ [working on this]
+What does your project do?
+
+## config instruction
+
+How does the user access your project? (E.g. download, or clone with git clone…)
+
+How does the user call the main script(s) that should be executed?
+## installation instructions
+
+## operating instructions
 
 ## Project organization
 - PG = project-generated
@@ -26,9 +37,24 @@
 │   └── output         <- Other output for the manuscript or reports (PG)
 └── src                <- Source code for this project (HW)
 
-```
+## file manifest (files included)
 
 
-## License
 
-This project is licensed under the terms of the [MIT License](/LICENSE.md)
+
+
+## Copy right & License
+
+This project is licensed under the terms of the [GPL-3.0 License](/LICENSE.md)
+
+## Contact info
+Femke van Esch: F.a.w.j.vanEsch@uu.nl
+
+## Known bugs
+The function calc_degrees_goW.R does not return what it is supposed to
+
+## Troubleshooting
+
+## Credits and acknowledgements
+
+## Citation info

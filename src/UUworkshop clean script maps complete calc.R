@@ -18,7 +18,11 @@ Merkel_p2_nodecalc <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes) # takes
 merkel_p2_map <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes)[[1]]
 merkel_p2_node_calc <- calc_degrees_goW(merkel_p2_edges, merkel_p2_nodes)[[2]]
 
+<<<<<<< HEAD
 # creating a map/graph
+=======
+
+>>>>>>> a7b019a (changed the Readme)
 merkel_p2_map <- graph_from_data_frame(d=merkel_p2_edges, vertices=merkel_p2_nodes, directed = T)
 
 farthest_vertices(merkel_p2_map, directed = TRUE, unconnected = TRUE)# #determine longest path to set the number of loops below 
@@ -26,8 +30,8 @@ get_diameter (merkel_p2_map, directed = TRUE, unconnected = TRUE)# (superfluous 
 
 
 #nieuwe evaluation_step functie proberen
-edges_new <- Evaluation_step(edges, nodes)[[1]]
-nodes_new <- Evaluation_step(edges, nodes)[[2]]
+edges_new <- Evaluation_step(merkel_p2_edges, merkel_p2_nodes)[[1]]
+nodes_new <- Evaluation_step(merkel_p2_edges, merkel_p2_nodes)[[2]]
 
 edges_2 <- Evaluation_step(edges_new, nodes_new)[[1]]
 nodes_2 <- Evaluation_step(edges_new, nodes_new)[[2]]
